@@ -10,7 +10,7 @@ val spark = SparkSession
   .config("spark.master", "local")
   .getOrCreate()
 
-// 암시적 인코더를 가져오기 위해 spark 생성 직후에 import
+
 import spark.implicits._
 
 // S3 경로 정의
@@ -72,7 +72,7 @@ if (!tableExists) {
   // 날짜별로 CSV와 테이블의 행 수를 비교
   println("CSV와 테이블의 날짜별 행 수를 비교합니다.")
   val countComparison = csvCounts.join(tableCounts, Seq("date"), "outer")
-    .na.fill(0) // null 값을 0으로 채움
+    .na.fill(0) 
     .withColumn("needs_update", col("csv_count") =!= col("table_count"))
   countComparison.show()
 
