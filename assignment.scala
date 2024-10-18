@@ -14,8 +14,8 @@ val spark = SparkSession
 import spark.implicits._
 
 // S3 경로 정의
-val inputS3Path = "s3://cp-intuizi/kaggle/2019-Oct.csv"
-val outputS3Path = "s3://cp-intuizi/processed/kaggle/parquet/"
+val inputS3Path = "s3://test/kaggle/2019-Oct.csv"
+val outputS3Path = "s3://test/processed/kaggle/parquet/"
 val externalTableName = "kaggle_external_table"
 
 // External Table 존재 여부 확인
